@@ -349,13 +349,6 @@
     white-space: normal; /* Allow text to wrap within fixed width */
 }
 
-.left-container{
-    /* No specific left positioning needed anymore */
-}
-
-.right-container{
-    /* Not used anymore */
-}
 
 .container img{
     position: static; /* Change position to static to work with flexbox */
@@ -365,9 +358,7 @@
     /* Removed top and left positioning as flexbox will handle it */
     z-index: 10;
 }
-.right-container img{
-    /* Not used anymore */
-}
+
 .timeline::after{
     content: '';
     position: absolute;
@@ -433,9 +424,6 @@
     border-bottom: 15px solid transparent;
     border-right: 15px solid transparent; /* Arrow color to match text box background - now transparent */
     left: -15px; /* Arrow pointing to the left */
-}
-.right-container-arrow{
-    /* Not used anymore */
 }
 
 @media screen and (max-width: 600px){
