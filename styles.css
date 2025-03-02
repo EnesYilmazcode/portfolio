@@ -752,16 +752,9 @@ footer p {
     width: calc(100% - 1rem);
 }
 
+/* Remove the triangle pointers */
 .timeline-content::before {
-    content: '';
-    position: absolute;
-    left: -10px;
-    top: 20px;
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid rgba(110, 231, 183, 0.1);
+    display: none; /* This hides the triangular pointers */
 }
 
 .timeline-content h3 {
@@ -939,10 +932,6 @@ footer p {
     .timeline-content {
         width: calc(100% - 6rem);
         margin-left: 4rem;
-    }
-
-    .timeline-content::before {
-        left: -10px;
     }
 }
 
