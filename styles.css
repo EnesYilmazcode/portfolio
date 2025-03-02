@@ -843,106 +843,49 @@ footer p {
     }
 
     .timeline-item {
-        padding: 1rem 0 1rem 28px;
+        padding: 1rem 0 1rem 36px;
+        margin-bottom: 1.5rem;
     }
 
     .timeline-marker {
-        left: -6px;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
+        left: 0;
     }
 
     .timeline-date {
-        writing-mode: vertical-lr;
-        transform: rotate(180deg);
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--primary);
-        position: absolute;
-        left: -24px;
-        top: 50%;
+        left: -18px;
     }
 
     .timeline-content {
-        margin-left: 0.25rem;
-        padding: 1.25rem;
-        width: calc(100% - 1rem);
+        width: 100%;
+        margin-left: 0;
+        padding: 1.5rem;
     }
 
-    .timeline-content::before {
-        left: -8px;
-        top: 15px;
-        border-right: 8px solid rgba(110, 231, 183, 0.1);
-    }
-
-    .timeline-role {
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .timeline-period {
-        font-size: 0.85rem;
-        margin-bottom: 0.75rem;
-    }
-
-    .timeline-content p {
-        font-size: 0.95rem;
-        margin: 0;
-        padding-right: 0.5rem;
-    }
-
-    .timeline-item:hover .timeline-date {
-        transform: rotate(180deg) translateX(-2px);
-        color: var(--accent);
-    }
-
-    .timeline-item:hover .timeline-content {
-        transform: translateX(5px);
+    .section-inner {
+        padding: 2rem 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .timeline-item {
-        padding-left: 25px;
-    }
-
-    .timeline::before {
-        left: 7px;
-    }
-
-    .timeline-marker {
-        left: -7px;
-    }
-
-    .timeline-date {
-        left: -22px;
-        font-size: 0.8rem;
+        padding-left: 30px;
     }
 
     .timeline-content {
-        padding: 1rem;
-        width: calc(100% - 0.75rem);
+        padding: 1.25rem;
     }
 
     .timeline-content h3 {
         font-size: 1.1rem;
-        margin-bottom: 0.4rem;
     }
 
     .timeline-role {
-        font-size: 0.95rem;
-        margin-bottom: 0.4rem;
-    }
-
-    .timeline-period {
-        font-size: 0.8rem;
-        margin-bottom: 0.6rem;
+        font-size: 1rem;
     }
 
     .timeline-content p {
         font-size: 0.9rem;
-        line-height: 1.4;
+        line-height: 1.5;
     }
 }
 
@@ -1066,4 +1009,28 @@ footer p {
 @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: var(--primary) }
+}
+
+/* Mobile Responsive Fixes for Buttons */
+@media (max-width: 480px) {
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+}
+
+/* For small tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
 }
