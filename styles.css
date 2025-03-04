@@ -1,3 +1,116 @@
+
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .loki {
+        font-size: 5rem;
+        letter-spacing: 0.05rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .loki {
+        font-size: 4rem;
+        letter-spacing: 0.02rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .loki {
+        font-size: 3rem;
+        letter-spacing: 0;
+    }
+}
+
+#blackOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 999; /* Ensure it's on top of everything */
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Fade effect */
+}
+
+/* Gear Icon */
+.gear-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 1001;
+    font-size: 24px;
+    color: var(--text);
+    transition: transform 0.3s ease;
+}
+
+.gear-icon:hover {
+    transform: rotate(360deg);
+}
+
+/* Dropdown Menu */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: rgba(30, 30, 30, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.dropdown li {
+    margin: 5px 0;
+    position: relative;
+}
+
+.dropdown a {
+    color: var(--text);
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    border-radius: 4px;
+}
+
+.dropdown a:hover {
+    background-color: var(--primary);
+    color: var(--background);
+    transform: scale(1.05);
+}
+
+.dropdown li {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /* General Styles */
 :root {
     --primary: #64ffda;
@@ -1012,49 +1125,22 @@ footer p {
 }
 
 .loki {
-    font-size: 7rem;
+    font-size: 7rem; /* Constant letter size */
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 30rem;
+    justify-content: space-between; /* Spreads letters across the width */
+    width: 80vw; /* Container width adjusts with screen width */
+    max-width: 35rem; /* Prevents it from becoming too wide */
+    min-width: 20rem; /* Ensures enough space for letters */
 }
 
 .loki .letter {
-    /* text-shadow: 0 0 0.4em #ffffffda, 0 0.5em #ffffffda, 0 0.25em #ffffffda; */ /* Remove or replace this */
-    text-shadow: 0.1em 0.1em 0.2em #ffffffda;  /* Example: Single, subtle shadow */
+    text-shadow: 0.1em 0.1em 0.2em #ffffffda;
     mix-blend-mode: screen;
     display: inline-block;
+    transition: font-family 0.2s ease-in-out;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-    .loki {
-        font-size: 5rem;
-        letter-spacing: 0.05rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .loki {
-        font-size: 4rem;
-        letter-spacing: 0.02rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .loki {
-        font-size: 3rem;
-        letter-spacing: 0;
-    }
-}
-
-@font-face {
-    font-family: 'MyCustomFont';
-    src: url('fonts/MyCustomFont.woff2') format('woff2'),
-         url('fonts/MyCustomFont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 #blackOverlay {
     position: fixed;
