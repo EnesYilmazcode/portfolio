@@ -8,55 +8,39 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&family=Amatic+SC:wght@700&family=Bangers&family=Fredericka+the+Great&family=Indie+Flower&family=Kirang+Haerang&family=Rye&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-
+    <div id="blackOverlay"></div>
     <canvas id="bg"></canvas>
 
     <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
+
+        <div class="gear-icon" id="gearIcon" aria-label="Menu">
+            <i class="fas fa-gear"></i>
+        </div>
+        <div class="dropdown" id="dropdownMenu">
+            <ul>
+                <li><a href="https://www.linkedin.com/in/enes-y/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="mailto:enesyilmaz5157@gmail.com">Email</a></li>
+                <li><a href="https://github.com/EnesYilmazcode" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="Enes Yilmaz Internship Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a></li>
+                <li><a href="https://calendly.com/enesyilmaz5157/meet-with-enes" target="_blank" rel="noopener noreferrer">Book A Call</a></li>
             </ul>
-        </nav>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/enes-y/" class="icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 3C19.5523 3 20 3.44771 20 4V20C20 20.5523 19.5523 21 19 21H5C4.44772 21 4 20.5523 4 20V4C4 3.44771 4.44772 3 5 3H19ZM18.5 18.5V13.2C18.5 11.4327 16.9888 10 15.189 10C14.3888 10 13.5005 10.3354 13 11V10.5H10.5V18.5H13V13.5C13 12.7 13.7 12 14.5 12C15.3 12 16 12.7 16 13.5V18.5H18.5ZM6.5 8C7.32843 8 8 7.32843 8 6.5C8 5.67157 7.32843 5 6.5 5C5.67157 5 5 5.67157 8 6.5C5 7.32843 5.67157 8 6.5 8ZM8 18.5V10.5H5.5V18.5H8Z" fill="currentColor"/>
-                </svg>
-            </a>
-            <a href="https://github.com/EnesYilmazcode" class="icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2C6.477 2 2 6.477 2 12C2 16.418 4.865 20.166 8.839 21.489C9.339 21.581 9.5 21.276 9.5 21.012C9.5 20.775 9.491 20.014 9.491 19.241C7 19.756 6.35 18.663 6.15 18.109C6.037 17.835 5.5 16.968 5 16.732C4.6 16.544 4.1 16.028 4.99 16.017C5.832 16.006 6.465 16.754 6.65 17.039C7.55 18.543 8.988 18.147 9.537 17.883C9.629 17.254 9.903 16.825 10.2 16.574C7.975 16.323 5.65 15.452 5.65 11.601C5.65 10.467 6.1 9.522 6.675 8.778C6.572 8.525 6.175 7.51 6.775 6.135C6.775 6.135 7.614 5.869 9.502 7.159C10.3081 6.93767 11.1501 6.8247 12 6.823C12.85 6.823 13.7 6.938 14.5 7.159C16.387 5.858 17.226 6.135 17.226 6.135C17.826 7.51 17.429 8.525 17.326 8.778C17.901 9.522 18.351 10.456 18.351 11.601C18.351 15.463 16.014 16.323 13.789 16.574C14.163 16.886 14.487 17.489 14.487 18.429C14.487 19.782 14.478 20.676 14.478 21.012C14.478 21.276 14.639 21.592 15.139 21.487C19.137 20.156 22 16.418 22 12C22 6.477 17.523 2 12 2Z" fill="currentColor"/>
-                </svg>
-            </a>
-            <a href="mailto:enesyilmaz5157@gmail.com" class="icon" aria-label="Email">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            </a>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text-container">
-                <span class="pre-title">Hi, my name is</span>
-                <h1><span>E</span><span>n</span><span>e</span><span>s</span> <span>Y</span><span>i</span><span>l</span><span>m</span><span>a</span><span>z</span></h1>
-                <h2>Computer Science Student</h2>
-                <p class="hero-description" id="quoteDisplay"></p>
-                <div class="cta-buttons">
-                    <a href="Enes Yilmaz Internship Resume.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Resume</a>
-                    <a href="https://calendly.com/enesyilmaz5157/meet-with-enes" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Book A Call</a>
-                </div>
+        <div class="container_2">
+            <div class="loki">
+                <span class="letter">E</span>
+                <span class="letter">n</span>
+                <span class="letter">e</span>
+                <span class="letter">s</span>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
-            <span>Scroll Down</span>
+            <div id="fontDisplay" style="font-size: 2rem; color: white; margin-top: 20px; background-color: black; padding: 10px;"></div>
         </div>
     </section>
 
@@ -286,34 +270,7 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="script.js"></script>
-    <script>
-        const quotes = [
-            "The privilege of a lifetime is being who you are. - Joseph Campbell",
-            "When I let go of what I am, I become what I might be. - Lao Tzu",
-            "The secret of change is to focus all of your energy not on fighting the old, but on building the new. - Socrates",
-            "We do not see things as they are, we see them as we are. - Anaïs Nin",
-            "It is not the mountain we conquer, but ourselves. - Edmund Hillary",
-            "The measure of intelligence is the ability to change. - Albert Einstein",
-            "When you realize nothing is lacking, the whole world belongs to you. - Lao Tzu",
-            "You will never be happy if you continue to search for what happiness consists of. - Albert Camus",
-            "The meaning of life is to find your gift. The purpose of life is to give it away. - Pablo Picasso",
-            "The question isn't who is going to let me; it's who is going to stop me. - Ayn Rand",
-            "I am not what happened to me, I am what I choose to become. - Carl Jung",
-            "It's not the load that breaks you down, it's the way you carry it. - Lou Holtz",
-            "You do not rise to the level of your goals. You fall to the level of your systems. - James Clear",
-            "The earth has music for those who listen. - William Shakespeare",
-            "In the midst of chaos, there is also opportunity. - Sun Tzu"
-        ];
-
-        function displayRandomQuote() {
-            const randomIndex = Math.floor(Math.random() * quotes.length);
-            document.getElementById("quoteDisplay").textContent = quotes[randomIndex];
-        }
-
-        displayRandomQuote();
-    </script>
 </body>
 
 </html>
