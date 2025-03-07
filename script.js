@@ -1,76 +1,81 @@
 const fonts = [
-  'a', // Font A
-  'b', // Font B
-  'c', // Font C
-  'd', // Font D
-  'e', // Font E
-  'f', // Font F
-  'g', // Font G
-  'h', // Font H
-  'i', // Font I
-  'j', // Font J
-  'k', // Font K
-  'l', // Font L
-  'm', // Font M
-  'n', // Font N
-  'o'  // Font O
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o'
 ];
 
 const letters = document.querySelectorAll('.letter');
-
-let count = 0;
-let timeElapsed = 0; // Track the time elapsed
-const initialDelay = 100; // Initial delay in milliseconds
-const decayFactor = 0.1; // Increment time for decay
-
-const rollIntro = () => {
-  letters.forEach(letter => {
-      let randomFontIndex = Math.floor(Math.random() * fonts.length);
-      let randomFont = fonts[randomFontIndex];
-      letter.style.fontFamily = randomFont;
-  });
-  
-  // Calculate the delay using the exponential decay function
-  const delay = Math.exp(-timeElapsed) * 1000; // Scale to milliseconds
-
-  // Use the initial delay for the first few swaps
-  const finalDelay = timeElapsed < 1 ? initialDelay : Math.max(delay, 200); // Use initial delay for the first second
-
-  // Increment timeElapsed for the next call
-  timeElapsed += decayFactor; // Increment time (you can adjust this value for faster/slower decay)
-
-  // Schedule the next font swap
-  if (timeElapsed < 2) { // Limit the timeElapsed to prevent too long of a delay
-      setTimeout(rollIntro, finalDelay);
-  }
-};
-
-// Start the animation
-rollIntro();
-
-// Fade out the black overlay after 0.5 seconds
-setTimeout(() => {
-    const blackOverlay = document.getElementById('blackOverlay');
-    blackOverlay.style.opacity = '0'; // Start fading out
-}, 500); // Wait for 0.5 seconds
-
-// Optionally, remove the overlay from the DOM after the fade-out
-setTimeout(() => {
-    const blackOverlay = document.getElementById('blackOverlay');
-    blackOverlay.style.display = 'none'; // Remove from view
-}, 1000); // Wait for the fade-out to complete
-
-// Toggle dropdown menu
 const gearIcon = document.getElementById('gearIcon');
 const dropdownMenu = document.getElementById('dropdownMenu');
 
+let count = 0;
+let jitterCount = 0;
+
+const rollIntro = () => {
+    letters.forEach(letter => {
+        const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+        letter.style.fontFamily = randomFont;
+    });
+};
+
+const jitterLetters = () => {
+    letters.forEach((letter, index) => {
+        const shiftX = Math.floor(Math.random() * 9) - 4;
+        const shiftY = Math.floor(Math.random() * 9) - 4;
+
+        // Check if the letter is "S" and apply scaling and left translation
+        if (letter.textContent === 'Sasd') {
+            letter.style.transform = `translate(${shiftX - 35}px, ${shiftY}px) scale(0.8)`;
+        } else {
+            letter.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
+        }
+    });
+};
+
+const introAnimation = setInterval(() => {
+    rollIntro();
+    if (count >= 10) {
+        clearInterval(introAnimation);
+        letters[0].style.fontFamily = 'f';
+        letters[1].style.fontFamily = 'e';
+        letters[2].style.fontFamily = 'b';
+        letters[3].style.fontFamily = 'o';
+
+        const jitterAnimation = setInterval(() => {
+            jitterLetters();
+            if (jitterCount >= 50) {
+                clearInterval(jitterAnimation);
+                letters.forEach((letter, index) => {
+                    if (letter.textContent === 'Sasd') {
+                        letter.style.transform = 'translate(-35%, 0) scale(0.8)';
+                    } else {
+                        letter.style.transform = 'translate(0, 0)';
+                    }
+                });
+            }
+            jitterCount++;
+        }, 400);
+    }
+    count++;
+}, 350);
+
+// Black Overlay Fade
+setTimeout(() => {
+    const blackOverlay = document.getElementById('blackOverlay');
+    blackOverlay.style.opacity = '0';
+    setTimeout(() => blackOverlay.style.display = 'none', 500);
+}, 500);
+
+// Gear Icon and Dropdown
 gearIcon.addEventListener('click', () => {
-    dropdownMenu.classList.toggle('show'); // Use class to control visibility
+    dropdownMenu.classList.toggle('show');
 });
 
-// Close dropdown when clicking outside
 window.addEventListener('click', (event) => {
     if (!gearIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
-        dropdownMenu.classList.remove('show'); // Hide dropdown
+        dropdownMenu.classList.remove('show');
     }
 });
+
+// Start Animation
+rollIntro();
+
+// Cursor Glow
