@@ -95,18 +95,21 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', revealOnScroll);
     window.addEventListener('scroll', revealOnScroll);
 
-    function copyEmail() {
-        const email = "your.email@example.com"; // Replace with your email
-        navigator.clipboard.writeText(email).then(() => {
-            // Show feedback
-            const button = event.currentTarget;
-            const originalTitle = button.title;
-            button.title = "Copied!";
-            
-            // Reset title after 2 seconds
-            setTimeout(() => {
-                button.title = originalTitle;
-            }, 2000);
+    // Add email copy functionality
+    const emailButton = document.querySelector('button[title="Copy Email"]');
+    if (emailButton) {
+        emailButton.addEventListener('click', function() {
+            const email = "enesyilmaz5157@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const originalTitle = this.title;
+                this.title = "Copied!";
+                
+                setTimeout(() => {
+                    this.title = originalTitle;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy email:', err);
+            });
         });
     }
 });
