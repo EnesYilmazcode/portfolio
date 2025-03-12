@@ -1,81 +1,112 @@
-const fonts = [
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o'
-];
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+    // Floating navigation bar logic
+    const floatingNav = document.querySelector('.floating-nav');
+    let lastScrollY = window.scrollY;
+    const scrollThreshold = 50; // Show nav after scrolling past 50px from top
 
-const letters = document.querySelectorAll('.letter');
-const gearIcon = document.getElementById('gearIcon');
-const dropdownMenu = document.getElementById('dropdownMenu');
+    function handleScroll() {
+        const currentScrollY = window.scrollY;
+        const scrollDirection = currentScrollY - lastScrollY;
 
-let count = 0;
-let jitterCount = 0;
-
-const rollIntro = () => {
-    letters.forEach(letter => {
-        const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
-        letter.style.fontFamily = randomFont;
-    });
-};
-
-const jitterLetters = () => {
-    letters.forEach((letter, index) => {
-        const shiftX = Math.floor(Math.random() * 9) - 4;
-        const shiftY = Math.floor(Math.random() * 9) - 4;
-
-        // Check if the letter is "S" and apply scaling and left translation
-        if (letter.textContent === 'Sasd') {
-            letter.style.transform = `translate(${shiftX - 35}px, ${shiftY}px) scale(0.8)`;
-        } else {
-            letter.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
+        if (currentScrollY < scrollThreshold) {
+            // Hide nav if near top of page
+            floatingNav.classList.remove('visible');
+            floatingNav.classList.add('hidden');
+        } else if (scrollDirection < 0) {
+            // Show nav when scrolling up
+            floatingNav.classList.remove('hidden');
+            floatingNav.classList.add('visible');
+        } else if (scrollDirection > 0) {
+            // Hide nav when scrolling down
+            floatingNav.classList.remove('visible');
+            floatingNav.classList.add('hidden');
         }
+
+        lastScrollY = currentScrollY;
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Project card hover effects
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.querySelector('.card-overlay').style.opacity = '1';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.querySelector('.card-overlay').style.opacity = '0';
+        });
     });
-};
 
-const introAnimation = setInterval(() => {
-    rollIntro();
-    if (count >= 10) {
-        clearInterval(introAnimation);
-        letters[0].style.fontFamily = 'f';
-        letters[1].style.fontFamily = 'e';
-        letters[2].style.fontFamily = 'b';
-        letters[3].style.fontFamily = 'o';
+    // Contact form handling
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            console.log('Form submission:', { name, email, message });
+            alert('Thanks for your message! I\'ll get back to you soon.');
+            contactForm.reset();
+        });
+    }
 
-        const jitterAnimation = setInterval(() => {
-            jitterLetters();
-            if (jitterCount >= 50) {
-                clearInterval(jitterAnimation);
-                letters.forEach((letter, index) => {
-                    if (letter.textContent === 'Sasd') {
-                        letter.style.transform = 'translate(-35%, 0) scale(0.8)';
-                    } else {
-                        letter.style.transform = 'translate(0, 0)';
-                    }
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
                 });
             }
-            jitterCount++;
-        }, 400);
+        });
+    });
+
+    // Reveal animations on scroll
+    function revealOnScroll() {
+        const sections = document.querySelectorAll('section');
+        const windowHeight = window.innerHeight;
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            if (sectionTop < windowHeight - 100) {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }
+        });
     }
-    count++;
-}, 350);
 
-// Black Overlay Fade
-setTimeout(() => {
-    const blackOverlay = document.getElementById('blackOverlay');
-    blackOverlay.style.opacity = '0';
-    setTimeout(() => blackOverlay.style.display = 'none', 500);
-}, 500);
+    // Initialize section animations
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
 
-// Gear Icon and Dropdown
-gearIcon.addEventListener('click', () => {
-    dropdownMenu.classList.toggle('show');
-});
+    // Run reveal function on load and scroll
+    window.addEventListener('load', revealOnScroll);
+    window.addEventListener('scroll', revealOnScroll);
 
-window.addEventListener('click', (event) => {
-    if (!gearIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
-        dropdownMenu.classList.remove('show');
+    function copyEmail() {
+        const email = "your.email@example.com"; // Replace with your email
+        navigator.clipboard.writeText(email).then(() => {
+            // Show feedback
+            const button = event.currentTarget;
+            const originalTitle = button.title;
+            button.title = "Copied!";
+            
+            // Reset title after 2 seconds
+            setTimeout(() => {
+                button.title = originalTitle;
+            }, 2000);
+        });
     }
 });
-
-// Start Animation
-rollIntro();
-
-// Cursor Glow
