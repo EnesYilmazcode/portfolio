@@ -1,16 +1,13 @@
 /* Base Styles & Variables */
 :root {
-    --bg-dark: #1b1c1e;
-    --bg-card: rgba(35, 36, 38, 0.5);
-    --color-accent: #40c6df;
-    --color-text: #fafbfd;
-    --color-text-secondary: #a0a0c0;
-    --color-border: #2a2b2d;
-    --gradient-accent: linear-gradient(135deg, #249cb1, #3ab5cc);
-    --gradient-1: linear-gradient(135deg, #40c6df, #3ab5cc);
-    --gradient-2: linear-gradient(135deg, #3ab5cc, #40c6df);
-    --card-radius: 12px;
-    --transition: all 0.3s ease;
+    --bg-dark: #0a0a0a;
+    --bg-card: #161616;
+    --color-accent: #4a90e2; /* Changed from neon teal to professional blue */
+    --color-text: #e0e0e0;
+    --color-text-secondary: #909090;
+    --color-border: #2a2a2a;
+    --gradient-accent: linear-gradient(135deg, #2e6b99, #4a90e2);
+    --card-radius: 8px; /* Reduced from 12px for sharper corners */
 }
 
 /* Reset & Global Styles */
@@ -80,25 +77,15 @@ button {
     visibility: hidden;
 }
 
+/* Floating Navigation */
 .nav-links {
-    display: flex;
-    gap: 20px;
-    background-color: rgba(35, 36, 38, 0.95);
-    border: 1px solid rgba(64, 198, 223, 0.2);
-    border-radius: 9999px;
-    padding: 12px 24px;
-    box-shadow: 0px 2px 3px -1px rgba(0, 0, 0, 0.1), 0px 1px 0px 0px rgba(25, 28, 33, 0.02), 0px 0px 0px 1px rgba(25, 28, 33, 0.08);
-}
-
-.nav-links a {
-    font-size: 16px;
-    padding: 8px 16px;
-    border-radius: 9999px;
-    transition: var(--transition);
+    background-color: rgba(22, 22, 22, 0.98);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .nav-links a:hover {
-    background-color: rgba(64, 198, 223, 0.1);
+    background-color: rgba(74, 144, 226, 0.1);
 }
 
 /* Section Styles */
@@ -290,6 +277,18 @@ h1 {
 .timeline-content p {
     font-size: 16px;
     margin-bottom: 0;
+}
+
+.timeline-content .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.timeline-content .location {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-left: auto;
 }
 
 /* Section Headers */
