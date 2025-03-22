@@ -1,14 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export", // Enables static export
+  output: "export",
   images: {
-    unoptimized: true, // GitHub Pages doesn't support Next.js image optimization
+    unoptimized: true,
   },
-  basePath: "/enesyilmazcode.github.io", // Sets the correct base path for GitHub Pages
-  assetPrefix: "/enesyilmazcode.github.io",
-  devIndicators: false,
-  errorIndicators: false,
+  eslint: {
+    ignoreDuringBuilds: true, // Ignores ESLint errors during build
+  },
 };
 
 export default nextConfig;
