@@ -1,39 +1,36 @@
-# Enes Yilmaz - Portfolio Website
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Welcome to my personal portfolio website repository! This website showcases my projects, experience, and skills in software development and computer science.
+## Getting Started
 
-## 🌐 Live Website
+First, run the development server:
 
-Visit my portfolio at: [enesyilmazcode.github.io](https://enesyilmazcode.github.io)
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## 🛠️ Built With
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- HTML5
-- CSS3
-- JavaScript
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## ✨ Features
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- Responsive design that works on all devices
-- Modern glassmorphism UI design
-- Smooth scrolling and parallax effects
-- Timeline-based experience section
-- Project showcase with hover effects
-- Skills section with custom icons
-- Contact links to social profiles
+## Learn More
 
-## 🚀 Projects Highlighted
+To learn more about Next.js, take a look at the following resources:
 
-1. **NYC Bus Stop Safety Analysis** - Data analysis project using Python and GeoPandas
-2. **DermAI** - AI-powered skin analysis application
-3. **ProScan** - Chrome extension for Amazon product data extraction
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## 📬 Contact
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-- LinkedIn: [Enes Yilmaz](https://www.linkedin.com/in/enes-y/)
-- GitHub: [@EnesYilmazcode](https://github.com/EnesYilmazcode)
-- Email: enesyilmaz5157@gmail.com
+## Deploy on Vercel
 
-## 📝 License
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-© 2025 Enes Yilmaz. All rights reserved.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
