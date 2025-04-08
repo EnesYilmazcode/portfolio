@@ -12,15 +12,7 @@ export default function Home() {
       <SpotlightNewDemo />
       <FloatingDockDemo />
       
-      <h2 className="text-4xl md:text-6xl font-bold text-center animated-gradient mt-8">
-        Hobbies
-      </h2>
-
-      <div style={{ height: '5rem' }} />
-
-      <BentoGridDemo />
-
-      <div style={{ height: '10rem' }} />
+      <div style={{ height: '15rem' }} />
 
       <h2 className="text-4xl md:text-6xl font-bold text-center animated-gradient mt-8">
         Experiences
@@ -33,9 +25,19 @@ export default function Home() {
       <h2 className="text-4xl md:text-6xl font-bold text-center animated-gradient mt-8 leading-relaxed">
   Projects
 </h2>
-<div style={{ height: '5rem' }} />
         <AnimatedTestimonialsDemo />
+
         <div style={{ height: '5rem' }} />
+
+        <h2 className="text-4xl md:text-6xl font-bold text-center animated-gradient mt-8">
+        Hobbies
+      </h2>
+
+      <div style={{ height: '5rem' }} />
+
+      <BentoGridDemo />
+
+      <div style={{ height: '10rem' }} />
       
     </div>
   );

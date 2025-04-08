@@ -13,7 +13,7 @@ export function BentoGridDemo() {
           description={item.description}
           header={
             item.image ? (
-              <div className="relative w-full h-full">
+              <div className="relative w-full h-48 sm:h-full">
                 <Image
                   src={item.image}
                   alt={item.title}
